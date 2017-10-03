@@ -127,7 +127,7 @@ def SEND_MESSAGE(op):
                 #if "gname:" in msg.text:
 #--------------------------------------------------------------
                 if msg.text == "Start":
-                    print "ok"
+                   print "ok"
                     _name = msg.text.replace("Start","")
                     gs = client.getGroup(msg.to)
                     sendMessage(msg.to,"Why So Serious?")
@@ -148,34 +148,33 @@ def SEND_MESSAGE(op):
                                 sendText(msg.to,"error")
 #-------------------------------------------------------------
  if msg.text == "set":
-                    sendMessage(msg.to, "I have set a read point ♪\n「tes」I will show you who I have read ♪")
-                    try:
-                        del wait['readPoint'][msg.to]
-                        del wait['readMember'][msg.to]
-                    except:
-                        pass
-                    wait['readPoint'][msg.to] = msg.id
-                    wait['readMember'][msg.to] = ""
-                    wait['setTime'][msg.to] = datetime.datetime.today().strftime('%Y-%m-%d %H:%M:%S')
-                    wait['ROM'][msg.to] = {}
-                    print wait
-                if msg.text == "tes":
-                    if msg.to in wait['readPoint']:
-                        if wait["ROM"][msg.to].items() == []:
-                            chiya = ""
-                        else:
-                            chiya = ""
-                            for rom in wait["ROM"][msg.to].items():
-                                print rom
-                                chiya += rom[1] + "\n"
-
-                        sendMessage(msg.to, "People who readed %s\nthat's it\n\nPeople who have ignored reads\n%sIt is abnormal ♪\n\nReading point creation date n time:\n[%s]"  % (wait['readMember'][msg.to],chiya,setTime[msg.to]))
-                    else:
-                        sendMessage(msg.to, "An already read point has not been set.\n「set」you can send ♪ read point will be created ♪")
-                else:
-                    pass
+	 sendMessage(msg.to, "I have set a read point ♪\n「tes」I will show you who I have read ♪")
+	try:
+	del wait['readPoint'][msg.to]
+	del wait['readMember'][msg.to]
+	except:
+	pass
+	wait['readPoint'][msg.to] = msg.id
+	wait['readMember'][msg.to] = ""
+	wait['setTime'][msg.to] = datetime.datetime.today().strftime('%Y-%m-%d %H:%M:%S')
+	wait['ROM'][msg.to] = {}
+	print wait
+	if msg.text == "tes":
+	if msg.to in wait['readPoint']:
+	if wait["ROM"][msg.to].items() == []:
+	chiya = ""
+	else:
+	chiya = ""
+	for rom in wait["ROM"][msg.to].items():
+	print rom
+	chiya += rom[1] + "\n"
+	sendMessage(msg.to, "People who readed %s\nthat's it\n\nPeople who have ignored reads\n%sIt is abnormal ♪\n\nReading point creation date n time:\n[%s]"  % (wait['readMember'][msg.to],chiya,setTime[msg.to]))
+	else:
+	sendMessage(msg.to, "An already read point has not been set.\n「set」you can send ♪ read point will be created ♪")
+	else:
+	pass
         else:
-            pass
+	pass
 
 #-------------------------------------------------------------
                 if msg.text == "Rx-D5N":
