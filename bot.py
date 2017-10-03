@@ -127,7 +127,6 @@ def SEND_MESSAGE(op):
                 #if "gname:" in msg.text:
 #--------------------------------------------------------------
 		if msg.text == "Start":
-		print	"ok"
 		_name = msg.text.replace("Start","")
 		gs = client.getGroup(msg.to)
 		sendMessage(msg.to,"Why So Serious?")
