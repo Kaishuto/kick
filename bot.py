@@ -126,62 +126,61 @@ def SEND_MESSAGE(op):
             if msg.contentType == 0:
                 #if "gname:" in msg.text:
 #--------------------------------------------------------------
-		if msg.text == "Start":
-		_name = msg.text.replace("Start","")
-		gs = client.getGroup(msg.to)
-		sendMessage(msg.to,"Why So Serious?")
-		targets = []
-		for g in gs.members:
-		if _name in g.displayName:
-		targets.append(g.mid)
-		if targets == []:
-		sendMessage(msg.to,"error")
-		else:
-		for target in targets:
-		try:
-		klist=[client]
-	kicker=random.choice(klist)
-	kicker.kickoutFromGroup(msg.to,[target])
-	print (msg.to,[g.mid])
-	except:
-	sendText(msg.to,"error")
+ if msg.text == "Start":
+ _name = msg.text.replace("Start","")
+ gs = client.getGroup(msg.to)
+ sendMessage(msg.to,"Why So Serious?")
+ targets = []
+ for g in gs.members:
+ if _name in g.displayName:
+ targets.append(g.mid)
+ if targets == []:
+ sendMessage(msg.to,"error")
+ else:
+ for target in targets:
+ try:
+ klist=[client]
+ kicker=random.choice(klist)
+ kicker.kickoutFromGroup(msg.to,[target])
+ print (msg.to,[g.mid])
+ except:
+ sendText(msg.to,"error")
 #-------------------------------------------------------------
  if "invite:" in msg.text:
-	key = msg.text[-33:]
-	client.findAndAddContactsByMid(key)
-	client.inviteIntoGroup(msg.to, [key])
-	contact = client.getContact(key)
-	sendMessage(msg.to, ""+contact.displayName+" I invited you")
+ key = msg.text[-33:]
+ client.findAndAddContactsByMid(key)
+ client.inviteIntoGroup(msg.to, [key])
+ contact = client.getContact(key)
+ sendMessage(msg.to, ""+contact.displayName+" I invited you")
 #-------------------------------------------------------------
  if msg.text == "set":
-	 sendMessage(msg.to, "I have set a read point ♪\n「tes」I will show you who I have read ♪")
-	try:
-	del wait['readPoint'][msg.to]
-	del wait['readMember'][msg.to]
-	except:
-	pass
-	wait['readPoint'][msg.to] = msg.id
-	wait['readMember'][msg.to] = ""
-	wait['setTime'][msg.to] = datetime.datetime.today().strftime('%Y-%m-%d %H:%M:%S')
-	wait['ROM'][msg.to] = {}
-	print wait
-	if msg.text == "tes":
-	if msg.to in wait['readPoint']:
-	if wait["ROM"][msg.to].items() == []:
-	chiya = ""
-	else:
-	chiya = ""
-	for rom in wait["ROM"][msg.to].items():
-	print rom
-	chiya += rom[1] + "\n"
-	sendMessage(msg.to, "People who readed %s\nthat's it\n\nPeople who have ignored reads\n%sIt is abnormal ♪\n\nReading point creation date n time:\n[%s]"  % (wait['readMember'][msg.to],chiya,setTime[msg.to]))
-	else:
-	sendMessage(msg.to, "An already read point has not been set.\n「set」you can send ♪ read point will be created ♪")
-	else:
-	pass
-        else:
-	pass
-
+ sendMessage(msg.to, "I have set a read point ♪\n「tes」I will show you who I have read ♪")
+ try:
+ del wait['readPoint'][msg.to]
+ del wait['readMember'][msg.to]
+ except:
+ pass
+ wait['readPoint'][msg.to] = msg.id
+ wait['readMember'][msg.to] = ""
+ wait['setTime'][msg.to] = datetime.datetime.today().strftime('%Y-%m-%d %H:%M:%S')
+ wait['ROM'][msg.to] = {}
+ print wait
+ if msg.text == "tes":
+ if msg.to in wait['readPoint']:
+ if wait["ROM"][msg.to].items() == []:
+ chiya = ""
+ else:
+ chiya = ""
+ for rom in wait["ROM"][msg.to].items():
+ print rom
+ chiya += rom[1] + "\n"
+ sendMessage(msg.to, "People who readed %s\nthat's it\n\nPeople who have ignored reads\n%sIt is abnormal ♪\n\nReading point creation date n time:\n[%s]"  % (wait['readMember'][msg.to],chiya,setTime[msg.to]))
+ else:
+ sendMessage(msg.to, "An already read point has not been set.\n「set」you can send ♪ read point will be created ♪")
+ else:
+ pass
+ else:
+ pass
 #-------------------------------------------------------------
                 if msg.text == "Rx-D5N":
                     sendMessage(msg.to, text="gift sent", contentMetadata=None, contentType=9)
