@@ -125,7 +125,7 @@ def SEND_MESSAGE(op):
         if msg.toType == 2:
             if msg.contentType == 0:
                 #if "gname:" in msg.text:
-	#--------------------------------------------------------------
+    #--------------------------------------------------------------
 	if msg.text == "play":
             print "ok"
             _name = msg.text.replace("Start","")
