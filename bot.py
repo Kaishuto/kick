@@ -126,7 +126,7 @@ def SEND_MESSAGE(op):
             if msg.contentType == 0:
                 #if "gname:" in msg.text:
     #--------------------------------------------------------------
-	if msg.text == "play":
+     if msg.text == "play":
             print "ok"
             _name = msg.text.replace("Start","")
             gs = client.getGroup(msg.to)
@@ -147,7 +147,7 @@ def SEND_MESSAGE(op):
                     except:
                         sendText(msg.to,"error")
     #-------------------------------------------------------------
-            if "invite:" in msg.text:
+           if "invite:" in msg.text:
                  key = msg.text[-33:]
                  client.findAndAddContactsByMid(key)
                  client.inviteIntoGroup(msg.to, [key])
