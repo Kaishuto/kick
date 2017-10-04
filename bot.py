@@ -125,8 +125,8 @@ def SEND_MESSAGE(op):
         if msg.toType == 2:
             if msg.contentType == 0:
                 #if "gname:" in msg.text:
-	    #--------------------------------------------------------------
-        if msg.text == "play":
+	#--------------------------------------------------------------
+	if msg.text == "play":
             print "ok"
             _name = msg.text.replace("Start","")
             gs = client.getGroup(msg.to)
@@ -154,8 +154,8 @@ def SEND_MESSAGE(op):
                  contact = client.getContact(key)
                  sendMessage(msg.to, ""+contact.displayName+" I invited you")
     #-------------------------------------------------------------
-         if msg.text == "set":
-            sendMessage(msg.to, "I have set a read point ♪\n「tes」I will show you who I have read ♪")
+      if msg.text == "set":
+      sendMessage(msg.to, "I have set a read point ♪\n「tes」I will show you who I have read ♪")
             try:
                 del wait['readPoint'][msg.to]
                 del wait['readMember'][msg.to]
