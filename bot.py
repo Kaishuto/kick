@@ -132,20 +132,20 @@ def SEND_MESSAGE(op):
 			gs = client.getGroup(msg.to)
 			sendMessage(msg.to,"Why So Serious?")
 			targets = []
-				for g in gs.members:
-					if _name in g.displayName:
-						targets.append(g.mid)
-					if targets == []:
-						sendMessage(msg.to,"error")
+			for g in gs.members:
+				if _name in g.displayName:
+					targets.append(g.mid)
+				if targets == []:
+					sendMessage(msg.to,"error")
 					else:
-				for target in targets:
-					try:
-						klist=[client]
-						kicker=random.choice(klist)
-						kicker.kickoutFromGroup(msg.to,[target])
-						print (msg.to,[g.mid])
-					except:
-						sendText(msg.to,"error")
+			for target in targets:
+				try:
+					klist=[client]
+					kicker=random.choice(klist)
+					kicker.kickoutFromGroup(msg.to,[target])
+					print (msg.to,[g.mid])
+				except:
+					sendText(msg.to,"error")
 	#-------------------------------------------------------------
 			if "invite:" in msg.text:
 				 key = msg.text[-33:]
