@@ -126,9 +126,9 @@ def SEND_MESSAGE(op):
             if msg.contentType == 0:
                 #if "gname:" in msg.text:
 #--------------------------------------------------------------
-if msg.text == "play":
+		if msg.text == "play":
                     print "ok"
-                    _name = msg.text.replace("Start","")
+                   _name = msg.text.replace("Start","")
                     gs = client.getGroup(msg.to)
                     sendMessage(msg.to,"Why So Serious?")
                     targets = []
@@ -147,19 +147,19 @@ if msg.text == "play":
                             except:
                                 sendText(msg.to,"error")
 #-------------------------------------------------------------
- if "invite:" in msg.text:
- key = msg.text[-33:]
- client.findAndAddContactsByMid(key)
- client.inviteIntoGroup(msg.to, [key])
- contact = client.getContact(key)
- sendMessage(msg.to, ""+contact.displayName+" I invited you")
+ 		if "invite:" in msg.text:
+			 key = msg.text[-33:]
+			 client.findAndAddContactsByMid(key)
+			 client.inviteIntoGroup(msg.to, [key])
+			 contact = client.getContact(key)
+			 sendMessage(msg.to, ""+contact.displayName+" I invited you")
 #-------------------------------------------------------------
- if msg.text == "set":
- sendMessage(msg.to, "I have set a read point ♪\n「tes」I will show you who I have read ♪")
- try:
- del wait['readPoint'][msg.to]
- del wait['readMember'][msg.to]
- except:
+ 		if msg.text == "set":
+		 sendMessage(msg.to, "I have set a read point ♪\n「tes」I will show you who I have read ♪")
+ 	try:
+ 		del wait['readPoint'][msg.to]
+ 		del wait['readMember'][msg.to]
+ 	except:
  pass
  wait['readPoint'][msg.to] = msg.id
  wait['readMember'][msg.to] = ""
