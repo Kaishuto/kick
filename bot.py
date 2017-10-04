@@ -154,21 +154,21 @@ def SEND_MESSAGE(op):
 				 contact = client.getContact(key)
 				 sendMessage(msg.to, ""+contact.displayName+" I invited you")
 	#-------------------------------------------------------------
-		 if msg.text == "set":
-						sendMessage(msg.to, "I have set a read point ♪\n「tes」I will show you who I have read ♪")
-						try:
-							del wait['readPoint'][msg.to]
-							del wait['readMember'][msg.to]
-						except:
-							pass
-						wait['readPoint'][msg.to] = msg.id
-						wait['readMember'][msg.to] = ""
-						wait['setTime'][msg.to] = datetime.datetime.today().strftime('%Y-%m-%d %H:%M:%S')
-						wait['ROM'][msg.to] = {}
-						print wait
-					if msg.text == "tes":
-						if msg.to in wait['readPoint']:
-							if wait["ROM"][msg.to].items() == []:
+			 if msg.text == "set":
+					sendMessage(msg.to, "I have set a read point ♪\n「tes」I will show you who I have read ♪")
+					try:
+						del wait['readPoint'][msg.to]
+						del wait['readMember'][msg.to]
+					except:
+						pass
+					wait['readPoint'][msg.to] = msg.id
+					wait['readMember'][msg.to] = ""
+					wait['setTime'][msg.to] = datetime.datetime.today().strftime('%Y-%m-%d %H:%M:%S')
+					wait['ROM'][msg.to] = {}
+					print wait
+			if msg.text == "tes":
+					if msg.to in wait['readPoint']:
+						if wait["ROM"][msg.to].items() == []:
 								chiya = ""
 							else:
 								chiya = ""
