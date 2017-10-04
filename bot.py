@@ -1,10 +1,10 @@
-	# -*- coding: utf-8 -*-
-	# Edited from script LineVodka script made by Rx-D5N
-	from LineAlpha import LineClient
-	from LineAlpha.LineApi import LineTracer
-	from LineAlpha.LineThrift.ttypes import Message
-	from LineAlpha.LineThrift.TalkService import Client
-	import time, datetime, random ,sys, re, string, os, json
+# -*- coding: utf-8 -*-
+# Edited from script LineVodka script made by Rx-D5N
+from LineAlpha import LineClient
+from LineAlpha.LineApi import LineTracer
+from LineAlpha.LineThrift.ttypes import Message
+from LineAlpha.LineThrift.TalkService import Client
+import time, datetime, random ,sys, re, string, os, json
 
 	reload(sys)
 	sys.setdefaultencoding('utf-8')
