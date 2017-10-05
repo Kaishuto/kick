@@ -125,7 +125,15 @@ def SEND_MESSAGE(op):
         if msg.toType == 2:
             if msg.contentType == 0:
                 #if "gname:" in msg.text:
-    #--------------------------------------------------------------
+ 
+#-------------------------------------------------------------
+           if "invite:" in msg.text:
+                 key = msg.text[-33:]
+                 client.findAndAddContactsByMid(key)
+                 client.inviteIntoGroup(msg.to, [key])
+                 contact = client.getContact(key)
+                 sendMessage(msg.to, ""+contact.displayName+" I invited you")
+ #--------------------------------------------------------------
      if msg.text == "play":
          print "ok"
          _name = msg.text.replace("Start","")
@@ -146,13 +154,6 @@ def SEND_MESSAGE(op):
                        print (msg.to,[g.mid])
                    except:
                        sendText(msg.to,"error")
-    #-------------------------------------------------------------
-           if "invite:" in msg.text:
-                 key = msg.text[-33:]
-                 client.findAndAddContactsByMid(key)
-                 client.inviteIntoGroup(msg.to, [key])
-                 contact = client.getContact(key)
-                 sendMessage(msg.to, ""+contact.displayName+" I invited you")
     #-------------------------------------------------------------
       if msg.text == "set":
       sendMessage(msg.to, "I have set a read point ♪\n「tes」I will show you who I have read ♪")
