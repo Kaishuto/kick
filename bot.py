@@ -111,7 +111,7 @@ def RECEIVE_MESSAGE(op):
         else:
             pass
     except KeyboardInterrupt:
-	       sys.exit(0)
+           sys.exit(0)
     except Exception as error:
         print error
         print ("\n\nRECEIVE_MESSAGE\n\n")
