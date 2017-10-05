@@ -126,12 +126,12 @@ def SEND_MESSAGE(op):
 			if msg.contentType == 0:
 				#if "gname:" in msg.text:
 #-------------------------------------------------------------
-	   if msg.text == "invite":
-			   key = msg.text[-33:]
-				client.findAndAddContactsByMid(key)
-				 client.inviteIntoGroup(msg.to, [key])
-				   contact = client.getContact(key)
-					sendMessage(msg.to, ""+contact.displayName+" I invited you")
+	if msg.text == "invite":
+		key = msg.text[-33:]
+		client.findAndAddContactsByMid(key)
+		client.inviteIntoGroup(msg.to, [key])
+		contact = client.getContact(key)
+		sendMessage(msg.to, ""+contact.displayName+" I invited you")
  #--------------------------------------------------------------
 	 if msg.text == "play":
 		 print "ok"
