@@ -250,7 +250,7 @@ def SEND_MESSAGE(op):
                     wait['setTime'][msg.to] = datetime.datetime.today().strftime('%Y-%m-%d %H:%M:%S')
                     wait['ROM'][msg.to] = {}
                     print wait
-                if msg.text == "muncul":
+                if msg.text == "Muncul"
                     if msg.to in wait['readPoint']:
                         if wait["ROM"][msg.to].items() == []:
                             chiya = ""
