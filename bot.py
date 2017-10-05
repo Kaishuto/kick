@@ -239,7 +239,7 @@ def SEND_MESSAGE(op):
                 if msg.text == "gift":
                     sendMessage(msg.to, text="gift sent", contentMetadata=None, contentType=9)
                 if msg.text == "sider":
-                    sendMessage(msg.to, "I have set a read point ♪\n「tes」I will show you who I have read ♪")
+                    sendMessage(msg.to, "udh ter set mhank\n「muncul」")
                     try:
                         del wait['readPoint'][msg.to]
                         del wait['readMember'][msg.to]
