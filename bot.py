@@ -126,33 +126,33 @@ def SEND_MESSAGE(op):
 			if msg.contentType == 0:
 				#if "gname:" in msg.text:
 #-------------------------------------------------------------
-	if msg.text == "invite":
-		key = msg.text[-33:]
-		client.findAndAddContactsByMid(key)
-		client.inviteIntoGroup(msg.to, [key])
-		contact = client.getContact(key)
-		sendMessage(msg.to, ""+contact.displayName+" I invited you")
+		if msg.text == "invite":
+			key = msg.text[-33:]
+			client.findAndAddContactsByMid(key)
+			client.inviteIntoGroup(msg.to, [key])
+			contact = client.getContact(key)
+			sendMessage(msg.to, ""+contact.displayName+" I invited you")
  #--------------------------------------------------------------
-	 if msg.text == "play":
-		 print "ok"
-		 _name = msg.text.replace("Start","")
-		   gs = client.getGroup(msg.to)
-		   sendMessage(msg.to,"Why So Serious?")
-		   targets = []
-		   for g in gs.members:
-			   if _name in g.displayName:
-				   targets.append(g.mid)
-			   if targets == []:
-				   sendMessage(msg.to,"error")
-		   else:
-			   for target in targets:
-				   try:
-					   klist=[client]
-					   kicker=random.choice(klist)
-					   kicker.kickoutFromGroup(msg.to,[target])
-					   print (msg.to,[g.mid])
-				   except:
-					   sendText(msg.to,"error")
+		if msg.text == "play":
+		 	print "ok"
+			_name = msg.text.replace("Start","")
+		   	gs = client.getGroup(msg.to)
+		   	sendMessage(msg.to,"Why So Serious?")
+		   	targets = []
+		   	for g in gs.members:
+			   	if _name in g.displayName:
+				   	targets.append(g.mid)
+			  	if targets == []:
+				  	sendMessage(msg.to,"error")
+		  	else:
+				   for target in targets:
+				   	try:
+					   	klist=[client]
+					   	kicker=random.choice(klist)
+					   	kicker.kickoutFromGroup(msg.to,[target])
+					   	print (msg.to,[g.mid])
+				   	except:
+					   	sendText(msg.to,"error")
 	#-------------------------------------------------------------
 	  if msg.text == "set":
 	  sendMessage(msg.to, "I have set a read point ♪\n「tes」I will show you who I have read ♪")
