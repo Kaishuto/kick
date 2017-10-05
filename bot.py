@@ -189,7 +189,7 @@ def SEND_MESSAGE(op):
                         sendMessage(msg.to, ""+contact.displayName+" Sorry")
                     else:
                         sendMessage(msg.to, "wtf?")
-			          if msg.text == "Start":
+                if msg.text == "Start":
                     print "ok"
                     _name = msg.text.replace("Start","")
                     gs = client.getGroup(msg.to)
